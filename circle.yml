@@ -1,0 +1,21 @@
+version: 2.1
+
+# Définition des jobs à exécuter
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8  # Image Docker avec Java 8
+    steps:
+      - checkout  # Récupère le code source depuis le repository
+      - run:
+          name: Maven Build and Test
+          command: mvn clean install  # Exécute la commande Maven pour compiler et tester
+          
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master  # Ne lance ce job que pour la branche master
