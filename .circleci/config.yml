@@ -1,28 +1,22 @@
 version: 2.1
-
-executors:
-  maven:
-    docker:
-      - image: circleci/openjdk:11
-    working_directory: ~/project
-
 jobs:
-  build-and-test:
-    executor: maven
+  build:
+    docker:
+      - image: cimg/openjdk:17.0  # Image Docker avec Java
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: mvn install -DskipTests
+          name: "Installer les dépendances Maven"
+          command: mvn install -DskipTests=true
       - run:
-          name: Run tests with JaCoCo
-          command: mvn clean verify
+          name: "Exécuter les tests avec JaCoCo"
+          command: mvn verify
       - run:
-          name: Upload coverage to Codecov
-          command: bash <(curl -s https://codecov.io/bash)
-
+          name: "Uploader les rapports de couverture vers Codecov"
+          command: |
+            bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-and-test
+      - build
