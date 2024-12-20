@@ -12,9 +12,12 @@
 |----------------------|
 | [![CircleCI](https://circleci.com/gh/username/repo-name.svg?style=shield)](https://circleci.com/gh/username/repo-name) |
 | [![Codecov](https://codecov.io/gh/username/repo-name/branch/main/graph/badge.svg?token=TOKEN)](https://codecov.io/gh/username/repo-name) |
+![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
+
 
 - **CircleCI** : Ce badge reflète le statut des tests et de la build dans CircleCI.
 - **Codecov** : Badge indiquant le pourcentage de couverture des tests dans Codecov.
+- **Analyse de qualité du code** : Checkstyle.
 
 ---
 
