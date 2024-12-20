@@ -2,7 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.mock;
+
 
 import org.junit.jupiter.api.Test;
 
