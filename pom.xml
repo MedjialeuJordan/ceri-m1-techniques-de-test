@@ -46,29 +46,25 @@
 
    <build>
     <plugins>
-        <!-- Plugin JaCoCo -->
         <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.10</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.4.1</version> <!-- Version récente -->
             <executions>
                 <execution>
+                    <id>generate-javadoc</id>
+                    <phase>package</phase>
                     <goals>
-                        <!-- Analyse la couverture pendant le test -->
-                        <goal>prepare-agent</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>report</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <!-- Génère les rapports -->
-                        <goal>report</goal>
+                        <goal>javadoc</goal>
                     </goals>
                 </execution>
             </executions>
+            <configuration>
+                <failOnError>true</failOnError>
+            </configuration>
         </plugin>
     </plugins>
 </build>
+
 
 </project>

@@ -15,6 +15,30 @@ jobs:
           name: "Uploader les rapports de couverture vers Codecov"
           command: |
             bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+      - run:
+          name: "Analyse de qualité du code avec Checkstyle"
+          command: mvn checkstyle:check
+      - run:
+          name: "Générer la Javadoc"
+          command: mvn javadoc:javadoc
+
+      - run:
+          name: "Publier la Javadoc sur GitHub Pages"
+          command: |
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "CircleCI Bot"
+            git clone --branch gh-pages https://github.com/username/repo-name.git gh-pages
+            cp -R target/site/apidocs/* gh-pages/
+            cd gh-pages
+            git add .
+            git commit -m "Mise à jour automatique de la Javadoc"
+            git push origin gh-pages
+      - run:
+          name: "Vérification de la couverture Javadoc avec Checkstyle"
+          command: mvn checkstyle:check
+
+
+
 workflows:
   version: 2
   build_and_test:
