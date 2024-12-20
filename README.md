@@ -13,6 +13,8 @@
 | [![CircleCI](https://circleci.com/gh/username/repo-name.svg?style=shield)](https://circleci.com/gh/username/repo-name) |
 | [![Codecov](https://codecov.io/gh/username/repo-name/branch/main/graph/badge.svg?token=TOKEN)](https://codecov.io/gh/username/repo-name) |
 ![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
+[![Javadoc](https://img.shields.io/badge/Javadoc-View-blue)](https://username.github.io/repo-name/)
+
 
 
 - **CircleCI** : Ce badge reflète le statut des tests et de la build dans CircleCI.
